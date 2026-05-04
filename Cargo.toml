@@ -1,0 +1,47 @@
+# Copyright (C) 2026 Jorge Andre Castro
+# GPL-2.0-or-later
+
+[package]
+edition      = "2024"
+name         = "embassy-hcsr04"
+version      = "0.1.0"
+authors      = ["Jorge Andre Castro <georgeandrec@gmail.com>"]
+description  = "Driver async no_std pour le capteur ultrasonique de distance HC-SR04P, basé sur Embassy."
+documentation = "https://docs.rs/embassy-hcsr04"
+readme       = "README.md"
+keywords     = ["embassy", "hcsr04", "sonar", "no-std", "embedded"]
+categories   = ["embedded", "no-std", "hardware-support"]
+license      = "GPL-2.0-or-later"
+repository   = "https://github.com/jorgeandrecastro/embassy-hcsr04"
+build        = false
+autolib      = false
+autobins     = false
+autoexamples = false
+autotests    = false
+autobenches  = false
+
+[lib]
+name = "embassy_hcsr04"
+path = "src/lib.rs"
+
+[features]
+default = []
+# Correction : on lie la feature "defmt" à la dépendance optionnelle
+defmt = ["dep:defmt"]
+
+[dependencies.embassy-time]
+version = "0.5"
+
+[dependencies.embedded-hal]
+version = "1.0"
+
+[dependencies.defmt]
+version  = "1.0"
+optional = true
+
+[profile.release]
+opt-level     = "z"
+lto           = true
+codegen-units = 1
+panic         = "abort"
+strip         = true

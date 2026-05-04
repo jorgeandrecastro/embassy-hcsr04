@@ -25,7 +25,7 @@ Conçu pour l'écosystème [Embassy](https://embassy.dev), ce driver permet de m
 Ajoutez ceci à votre `Cargo.toml` :
 ```toml
 [dependencies]
-embassy-hcsr04 = "0.1.0"
+embassy-hcsr04 = "0.1.1"
 embassy-time = "0.5"
 embedded-hal = "1.0"
 ```
@@ -67,13 +67,12 @@ let dist = sonar.measure_mm_compensated(temp).await?;
 
 # 🔴 Câblage (Exemple RP2350 )
 
-|Broche HC-SR04P |Connexion|Note |                                              |
-|----------------|---------------|----------------------------------------------|
-|VCC             |3.3V           |"Utilisez la version ""P"" pour le 3.3V natif"|
-|GND             |GND            |Masse commune                                 |
-|TRIG            |GP2 (Output)   |Signal de déclenchement                       |
-|ECHO            |GP3 (Input)    |Signal de retour                              |
-
+| Broche HC-SR04P | Connexion    | Note                                       |
+| :-------------- | :----------- | :----------------------------------------- |
+| **VCC**         | 3.3V         | Utilisez la version "P" pour le 3.3V natif |
+| **GND**         | GND          | Masse commune                              |
+| **TRIG**        | GP2 (Output) | Signal de déclenchement                    |
+| **ECHO**        | GP3 (Input)  | Signal de retour                           |
 
 -----
 
